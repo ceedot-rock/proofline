@@ -1,0 +1,9 @@
+proofline
+*.o
+proofline.key
+proofline.pub
+proofline.journal
+proofline.pmcp
+proofline.pmcp.journal
+journal-export.bin
+*.out

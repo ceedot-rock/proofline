@@ -1,0 +1,19 @@
+name: ci
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Clone PmCp dependency
+        run: git clone --depth 1 https://github.com/ceedot-rock/pmcp ../pmcp
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsodium-dev python3-pip
+          pip install pillow
+      - name: Build and test
+        run: make test
